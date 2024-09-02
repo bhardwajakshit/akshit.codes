@@ -4,6 +4,7 @@ import { ThemeProvider } from "next-themes";
 import MobileProvider from "@/contexts/MobileContext";
 import { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
+import ReactDOM from "react-dom";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -13,6 +14,9 @@ export const metadata: Metadata = {
   description: "Portfolio of Akshit Bhardwaj",
 };
 
+ReactDOM.preload(`/kickflip.ani`, { as: "fetch" });
+ReactDOM.preconnect("https://raw.githubusercontent.com");
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -20,9 +24,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://raw.githubusercontent.com" />
-      </head>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 type FirePoint = {
   id: string;
@@ -124,11 +125,24 @@ export const FirePoints: React.FC<Props> = ({ setSpecifiedPositions }) => {
         >
           <div className="flex items-center justify-center">
             {fire ? (
-              <img src="/torch-burning.gif" />
+              <Image
+                src="/torch-burning.gif"
+                alt="burning-torch"
+                width={64}
+                height={64}
+                quality={100}
+                priority
+              />
             ) : (
-              <>
-                <img src="/torch.png" className="mt-7" />
-              </>
+              <Image
+                src="/torch.png"
+                alt="torch"
+                width={64}
+                height={64}
+                quality={100}
+                className="mt-7"
+                priority
+              />
             )}
           </div>
         </div>
