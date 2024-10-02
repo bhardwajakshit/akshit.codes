@@ -2,8 +2,8 @@
 
 const cspHeader = `
     default-src 'self';
-    script-src 'self';
-    style-src 'self';
+    script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com/;
+    style-src 'self' 'unsafe-inline';
     img-src 'self' blob: data:;
     font-src 'self' https://fonts.googleapis.com;
     object-src 'none';
