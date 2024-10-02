@@ -25,6 +25,8 @@ export const ThemeToggle = () => {
     const updatedTheme =
       selectedTheme === Theme.Dark ? Theme.Light : Theme.Dark;
     if (updatedTheme === Theme.Dark && !isMobile) {
+      const img = new Image();
+      img.src = "/torch-burning.gif";
       playAudio();
     } else if (audioRef.current) {
       audioRef.current.pause();
