@@ -22,7 +22,7 @@ export const ThemeToggle = () => {
 
   const handleToggleTheme = () => {
     const updatedTheme = theme === Theme.Dark ? Theme.Light : Theme.Dark;
-    if (theme === Theme.Dark && !isMobile) {
+    if (theme === Theme.Light && !isMobile) {
       const img = new Image();
       img.src = "/torch-burning.gif";
       playAudio();
