@@ -9,7 +9,7 @@ export const ThemeToggle = () => {
   const { setTheme } = useTheme();
   const { isMobile } = useMobile();
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [selectedTheme, setSelectedTheme] = useState<Theme>(Theme.Dark);
+  const [selectedTheme, setSelectedTheme] = useState<Theme>(Theme.Light);
 
   const playAudio = () => {
     if (!audioRef.current) {
