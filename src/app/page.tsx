@@ -15,7 +15,7 @@ import { useMobile } from "@/contexts/MobileContext";
 
 export default function Home() {
   const { isMobile } = useMobile();
-  const { theme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const darkTheme = theme === Theme.Dark;
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [specifiedPositions, setSpecifiedPositions] = useState<
@@ -28,9 +28,9 @@ export default function Home() {
   const [mounted, setMounted] = useState<boolean>(false);
 
   useEffect(() => {
+    setTheme("light");
     setMounted(true);
-    localStorage.clear();
-  }, []);
+  }, [setTheme]);
 
   async function applyCursor(selector: string, aniUrl: string | URL | Request) {
     const response = await fetch(aniUrl);

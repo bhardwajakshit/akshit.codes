@@ -3,13 +3,12 @@ import { Theme } from "@/lib/types";
 import { motion } from "framer-motion";
 import { MoonSat, SunLight } from "iconoir-react";
 import { useTheme } from "next-themes";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 
 export const ThemeToggle = () => {
-  const { setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const { isMobile } = useMobile();
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [selectedTheme, setSelectedTheme] = useState<Theme>(Theme.Light);
 
   const playAudio = () => {
     if (!audioRef.current) {
@@ -22,9 +21,8 @@ export const ThemeToggle = () => {
   };
 
   const handleToggleTheme = () => {
-    const updatedTheme =
-      selectedTheme === Theme.Dark ? Theme.Light : Theme.Dark;
-    if (updatedTheme === Theme.Dark && !isMobile) {
+    const updatedTheme = theme === Theme.Dark ? Theme.Light : Theme.Dark;
+    if (theme === Theme.Dark && !isMobile) {
       const img = new Image();
       img.src = "/torch-burning.gif";
       playAudio();
@@ -34,17 +32,7 @@ export const ThemeToggle = () => {
       audioRef.current = null;
     }
     setTheme(updatedTheme);
-    setSelectedTheme(updatedTheme);
   };
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const theme = localStorage.getItem("theme");
-      if (theme) {
-        setSelectedTheme(theme as Theme);
-      }
-    }
-  }, []);
 
   return (
     <motion.button
@@ -57,7 +45,7 @@ export const ThemeToggle = () => {
       className="outline-none"
       aria-label="Toggle Theme"
     >
-      {selectedTheme === Theme.Dark ? <SunLight /> : <MoonSat />}
+      {theme === Theme.Dark ? <SunLight /> : <MoonSat />}
     </motion.button>
   );
 };

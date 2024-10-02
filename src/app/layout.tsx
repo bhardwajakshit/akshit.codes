@@ -6,6 +6,7 @@ import { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import ReactDOM from "react-dom";
 import "./globals.css";
+import { useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,6 +30,7 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="light"
           disableTransitionOnChange
+          enableSystem={false}
         >
           <Analytics />
           <MobileProvider>
