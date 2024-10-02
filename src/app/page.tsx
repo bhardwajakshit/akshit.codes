@@ -29,6 +29,7 @@ export default function Home() {
 
   useEffect(() => {
     setMounted(true);
+    localStorage.clear();
   }, []);
 
   async function applyCursor(selector: string, aniUrl: string | URL | Request) {
