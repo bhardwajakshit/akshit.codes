@@ -132,6 +132,7 @@ export const FirePoints: React.FC<Props> = ({ setSpecifiedPositions }) => {
                 height={64}
                 quality={100}
                 priority
+                unoptimized
               />
             ) : (
               <Image

@@ -1,3 +1,4 @@
+import { useMobile } from "@/contexts/MobileContext";
 import { Theme } from "@/lib/types";
 import { motion } from "framer-motion";
 import { MoonSat, SunLight } from "iconoir-react";
@@ -6,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 
 export const ThemeToggle = () => {
   const { setTheme } = useTheme();
+  const { isMobile } = useMobile();
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [selectedTheme, setSelectedTheme] = useState<Theme>(Theme.Dark);
 
@@ -22,7 +24,7 @@ export const ThemeToggle = () => {
   const handleToggleTheme = () => {
     const updatedTheme =
       selectedTheme === Theme.Dark ? Theme.Light : Theme.Dark;
-    if (updatedTheme === Theme.Dark) {
+    if (updatedTheme === Theme.Dark && !isMobile) {
       playAudio();
     } else if (audioRef.current) {
       audioRef.current.pause();
