@@ -49,7 +49,7 @@ export const Experience = ({
           )}
           {description.map((desc, index) => (
             <div className="flex items-start gap-2" key={index}>
-              <span className="text-blue-900">•</span>
+              <span className="text-blue-900 dark:text-orange-600">•</span>
               <StaggerText
                 className="text-xs md:text-sm 2xl:text-base text-gray-600 dark:text-gray-300 leading-normal font-normal"
                 text={desc}
