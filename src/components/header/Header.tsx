@@ -9,6 +9,7 @@ export const Header = ({
   updateCursor: (cursorUrl: string) => void;
 }) => {
   const { theme } = useTheme();
+  const lightTheme = theme === Theme.Light;
 
   return (
     <motion.div className="flex items-center justify-between w-full">
@@ -33,10 +34,10 @@ export const Header = ({
           <span
             className="py-1.5 bg-clip-text text-transparent hover:text-white dark:hover:text-transparent bg-gradient-to-r from-indigo-600 dark:from-[#cf4729] via-purple-600 dark:via-yellow-500 to-pink-600 dark:bg-red-700 animated-gradient transition-colors duration-300"
             onMouseEnter={() => {
-              theme === Theme.Light && updateCursor("/kickflip.ani");
+              lightTheme && updateCursor("/kickflip.ani");
             }}
             onMouseLeave={() => {
-              theme === Theme.Light && updateCursor("./smoke.ani");
+              lightTheme && updateCursor("./smoke.ani");
             }}
           >
             magic!
