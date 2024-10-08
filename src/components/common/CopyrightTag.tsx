@@ -1,5 +1,4 @@
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { Button } from "../ui/button";
 import {
   HoverCard,
   HoverCardContent,
@@ -13,13 +12,13 @@ export const CopyrightTag = () => {
     <div className="mt-auto">
       <HoverCard>
         <HoverCardTrigger asChild>
-          <Button
-            variant="link"
-            className="text-gray-400 text-xs md:text-sm 2xl:text-base font-light"
+          <button
+            role="link"
+            className="m-1.5 text-gray-500 text-xs md:text-sm 2xl:text-base font-light relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:w-full after:origin-bottom after:scale-x-0 after:bg-gray-500 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom hover:after:scale-x-100"
             aria-label={`Akshit Bhardwaj © ${year}`}
           >
             Akshit Bhardwaj © {year}
-          </Button>
+          </button>
         </HoverCardTrigger>
         <HoverCardContent className="w-80">
           <div className="flex justify-between space-x-4">
@@ -57,7 +56,7 @@ const Tech = ({ link, title }: { link: string; title: string }) => {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={title}
-      className="text-blue-800 hover:text-blue-600 dark:text-orange-800 dark:hover:text-orange-600"
+      className="text-blue-800 hover:text-blue-600 dark:text-orange-800 dark:hover:text-orange-600 relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-blue-600 dark:after:bg-orange-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
     >
       {title}
     </a>
